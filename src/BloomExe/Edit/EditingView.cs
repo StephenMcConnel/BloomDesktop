@@ -1,4 +1,4 @@
-﻿//#define MEMORYCHECK
+﻿#define MEMORYCHECK
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -481,6 +481,8 @@ namespace Bloom.Edit
 				return;
 			}
 
+			GC.WaitForPendingFinalizers();
+			MemoryService.MinimizeHeap(true);
 #if MEMORYCHECK
 			// Check memory for the benefit of developers.
 			SIL.Windows.Forms.Reporting.MemoryManagement.CheckMemory(false, "EditingView - about to update the displayed page", false);

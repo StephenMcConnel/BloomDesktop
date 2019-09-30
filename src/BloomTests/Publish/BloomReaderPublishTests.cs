@@ -24,6 +24,7 @@ using Bloom.Publish;
 
 namespace BloomTests.Publish
 {
+	[Platform(Exclude = "Linux", Reason = "hung when running tests")]
 	class BloomReaderPublishTests : BookTestsBase
 	{
 		private BookServer _bookServer;

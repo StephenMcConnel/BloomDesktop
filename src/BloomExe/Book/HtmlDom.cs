@@ -1576,7 +1576,7 @@ namespace Bloom.Book
 				if (idxEnd > idxStart)
 				{
 					var cssContent = htmlContent.Substring(idxStart, idxEnd - idxStart);
-					Console.WriteLine("DEBUG cssContent from HTML <style> = \"{0}\"", cssContent);
+					//Console.WriteLine("DEBUG cssContent from HTML <style> = \"{0}\"", cssContent);
 					FindFontsUsedInCss(cssContent, result, includeFallbackFonts);
 				}
 			}
