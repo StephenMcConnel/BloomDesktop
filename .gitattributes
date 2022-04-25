@@ -36,3 +36,5 @@
 *.d.ts -whitespace
 src/BloomBrowserUI/compilerconfig.json -whitespace
 changelog -whitespace
+
+flatpak/patches/geckofx/FixesForFlatpak.patch binary

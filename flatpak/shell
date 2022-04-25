@@ -1,0 +1,2 @@
+#!/bin/sh
+flatpak run --command=bash org.sil.Bloom

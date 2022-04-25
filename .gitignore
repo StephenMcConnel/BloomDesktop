@@ -1,3 +1,7 @@
+flatpak/.flatpak-builder/
+flatpak/build-dir/
+flatpak/flatpak-builder-tools/
+flatpak/local-repo/
 src/Bloom.suo
 *.user
 *.orig
