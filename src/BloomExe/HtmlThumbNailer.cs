@@ -732,12 +732,8 @@ namespace Bloom
 
 		private Browser MakeNewBrowser()
 		{
-			Debug.WriteLine("making browser ({0})", Thread.CurrentThread.ManagedThreadId);
-#if !__MonoCS__
-			var browser = BrowserMaker.MakeBrowser();
-#else
-			var browser = new OffScreenGeckoWebBrowser();
-#endif
+			Debug.WriteLine("making browser for HtmlThumbNailer ({0})", Thread.CurrentThread.ManagedThreadId);
+			var browser = BrowserMaker.MakeBrowser(offScreen: true);
 			browser.CreateControl();
 			browser.DocumentCompleted += _browser_OnDocumentCompleted;
 			return browser;
