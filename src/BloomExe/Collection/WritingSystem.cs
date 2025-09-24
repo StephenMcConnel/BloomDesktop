@@ -337,7 +337,18 @@ namespace Bloom.Collection
             if (!LookupModel.AreLanguagesLoaded)
             {
                 if (!SIL.WritingSystems.Sldr.IsInitialized)
-                    SIL.WritingSystems.Sldr.Initialize(true); // needed for tests
+                {
+                    try
+                    {
+                        SIL.WritingSystems.Sldr.Initialize(true); // needed for tests
+                    }
+                    catch (System.BadImageFormatException e)
+                    {
+                        if (!e.StackTrace.Contains("Icu.NativeMethods.LoadIcuLibrary("))
+                            throw;
+                        // Swallow an exception trying to load ICU, which doesn't matter for tests.
+                    }
+                }
                 LookupModel.IncludeScriptMarkers = false;
                 // The previous line should have loaded the LanguageLookup object: if something changes so that
                 // it doesn't, ensure that happens anyway.
